@@ -8,7 +8,7 @@ def hello_world(name: str) -> str:
     return hello_name(name)
 
 
-def hello_name(name: str) -> int:
+def hello_name(name: str) -> str:
     return f"hello, {name}"
 
 
