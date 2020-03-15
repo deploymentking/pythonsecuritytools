@@ -42,7 +42,13 @@ check: setup ## Run the linting and security scanning tools
 	pipenv run ochrona
 	pipenv run mypy .
 	@echo '*************** Check Complete ******************'
-.PHONY: setup
+.PHONY: check
+
+reformat: ## Run the black Python reformatter
+	@echo '**************** Reformat code *******************'
+	pipenv run black .
+	@echo '*************** Reformat Complete ******************'
+.PHONY: reformat
 
 reset: ## Teardown tooling
 	pipenv --rm
