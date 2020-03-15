@@ -37,10 +37,10 @@ setup: check_python ## Setup virtualenv
 
 check: setup ## Run the linting and security scanning tools
 	@echo '**************** Check linting and security *******************'
-	-pipenv run bandit ./*
-	-pipenv run black --check .
-	-pipenv run ochrona
-	-pipenv run mypy .
+	pipenv run bandit ./*
+	pipenv run black --check .
+	pipenv run ochrona
+	pipenv run mypy .
 	@echo '*************** Check Complete ******************'
 .PHONY: setup
 
