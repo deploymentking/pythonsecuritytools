@@ -1,0 +1,12 @@
+language: python
+python:
+  - 3.8
+install:
+  - pip install -U pip
+  - pip install pipenv
+  - pipenv install --dev
+script:
+  - bandit ./*
+  - black --check .
+  - ochrona
+  - mypy .
