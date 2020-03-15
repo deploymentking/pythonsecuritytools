@@ -13,4 +13,4 @@ def hello_name(name: str) -> int:
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
