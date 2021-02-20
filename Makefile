@@ -31,7 +31,8 @@ check_python: ## Check python installation
 setup: check_python ## Setup virtualenv
 	@echo '**************** Creating virtualenv *******************'
 	pipenv run pip install --upgrade pip
-	export PIPENV_DEFAULT_PYTHON_VERSION=${PYTHON_REQUIRED} PIPENV_VENV_IN_PROJECT=True && pipenv install --dev
+	pipenv lock --pre
+	export PIPENV_DEFAULT_PYTHON_VERSION=${PYTHON_REQUIRED} && pipenv install --dev
 	@echo '*************** Installation Complete ******************'
 .PHONY: setup
 
@@ -39,7 +40,7 @@ check: setup ## Run the linting and security scanning tools
 	@echo '**************** Check linting and security *******************'
 	pipenv run bandit ./*
 	pipenv run black --check .
-#	pipenv run ochrona
+	pipenv run ochrona
 	pipenv run mypy .
 	@echo '*************** Check Complete ******************'
 .PHONY: check
@@ -51,6 +52,5 @@ reformat: ## Run the black Python reformatter
 .PHONY: reformat
 
 reset: ## Teardown tooling
-	pipenv --rm
-	rm -rf .mypy_cache
+	rm -rf .mypy_cache .venv
 .PHONY: reset
