@@ -1,7 +1,8 @@
 ---
 debug: true
 silent: false
-dir: .
+#dir: .
+file: ./requirements.txt
 report_type: JSON
 report_location: ./output
 include_dev: true
