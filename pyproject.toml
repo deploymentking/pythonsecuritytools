@@ -12,7 +12,7 @@ black = "^20.8b1"
 mypy = "^0.812"
 ochrona = "^0.0.17"
 Flask = "^1.1.2"
-urllib3 = "^1.26.3"
+urllib3 = "^1.26.4"
 
 [tool.poetry.dev-dependencies]
 
